@@ -32,6 +32,194 @@ Move on when you’re ready to learn more!
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Creating and Initializing Arrays
+----------------------------------
+6 min
+An array is a collection of data that can be of any type. For example, you can construct an array of ints, bools, chars, etc.
+
+There are two types of arrays that can be created: an initialized array or an uninitialized array. As its name implies, an uninitialized array is created without specifying the initial 
+values it contains. As an example, we will create an uninitialized array called age, containing four variables of type int, which represents the age of four siblings:
+
+int age[4];
+
+To indicate to the compiler that age is an array of ints and not a single int variable, we append [arraySize] (in this case, arraySize is four) to the end of the variable name.
+
+The general template for creating an uninitialized array is:
+
+dataType name[arraySize];
+
+When you create an uninitialized array, you are required to specify its size so that the compiler may reserve the proper amount of memory blocks. Once it is created, the size of the array 
+cannot be changed; this means that arrays are static. An uninitialized array can be populated later in a program.
+
+In contrast, an initialized array is created by specifying the initial value of its elements. As an example, we will create an age array with four initial ages:
+
+int age[] = {7, 27, 34, 63};
+
+The general template for creating an initialized array is:
+
+dataType name[] = {firstValue, secondValue, thirdValue, …};
+
+Notice that in this case, you don’t need to specify the size of the array as it is implied from the number of elements supplied; however, declaring an initialized array with the size 
+specified will also work. The previous example could have also been written like this:
+
+int age[4] = {7, 27, 34, 63};
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Create an uninitialized array of five doubles called q.
+
+
+Hint
+Remember, an uninitialized array is created like this:
+
+dataType name[arraySize];
+
+Checkpoint 2 Passed
+2.
+Create an initialized array of integers called evens consisting of the first five even numbers, starting with 2.
+
+
+Hint
+Remember, an initialized array is created like this:
+
+dataType name[] = {firstValue, secondValue, thirdValue, …};
+
+exercise2.c
+-----------
+
+
+
+
+#include<stdio.h>
+
+int main() {
+  
+  // Checkpoint 1 code goes here.
+  double q[5];
+  // Checkpoint 2 code goes here.
+  int evens[] = {2, 4, 6, 8 , 10};
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Array Access and Element Modification
+---------------------------------------
+9 min
+Array elements can be accessed, modified, and used just like any other variable of the same data type. The following shows how to access an element in an array at index idx:
+
+arr[idx]
+
+The first element in an array has index 0 and the last element in an array has index arraySize - 1. The nth element is at index n-1, so, for example, the third element would be at 
+index 2.
+
+An element in an array is modified just like a regular variable:
+
+arr[idx] = newValue
+
+Remember to be consistent with the data types! For example, elements of an array of integers can only be modified to represent other integer values; anything else will cause errors. When 
+working with arrays, it is important to be careful and not attempt to access an element at an index greater than arraySize - 1 as the memory located there could be storing other data. 
+Accessing an array at an index greater than arraySize - 1 will return a random value. Modifying an element at an index greater than arraySize - 1 will corrupt the data stored at that 
+location, causing the program to behave in an unpredictable manner. The same is true for array access at indices less than zero.
+
+The following piece of code changes an element in an array and assigns it to a lone variable:
+
+#include<stdio.h>
+
+int main() {
+    int arr[] = {3, 5, 7, 9}; // Array creation
+    arr[2] = 6; // Modify the third element
+    int x = arr[2]; // Assign the third element to the lone variable x
+    printf("%i", x); // Print x
+}
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+The accompanying code erroneously attempts to print the last value in the evens array. Fix this bug.
+
+
+Hint
+The last value in an array is at index arraySize - 1.
+
+Checkpoint 2 Passed
+2.
+Print the third element of the evens array.
+
+
+Hint
+Remember that elements in an array are accessed like so:
+
+arr[index]
+
+Also, remember that the nth element is at index n-1.
+
+Checkpoint 3 Passed
+3.
+The odds array given is intended to contain the first six odd numbers. Notice that some values are incorrect. Fix them by changing their value to the correct odd number. Do this by using 
+array access.
+
+
+Hint
+An element in an array can be modified like so:
+
+arr[idx] = newValue
+
+exercise3.c
+-----------
+#include<stdio.h>
+
+int main() {
+
+  int evens[] = {2, 4, 6, 8, 10, 12};
+  int odds[] = {1, 4, 5, 7, 10, 11}; // Do not modify this line.
+  
+  printf("%i\n", evens[5]); // Checkpoint 1. Fix this error.
+
+  // Code for checkpoint 2 goes here.
+  printf("%i\n", evens[2]);
+  // Code for checkpoint 3 goes here.
+  odds[1] = 3;
+  odds[4] = 9;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
